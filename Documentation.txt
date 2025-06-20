@@ -1,0 +1,54 @@
+Trader Behavior Insights - Project Documentation
+===============================================
+
+Overview
+--------
+This project explores the relationship between trader performance and Bitcoin market sentiment using two primary datasets:
+1. Bitcoin Market Sentiment Dataset (Fear/Greed Index)
+2. Historical Trader Data from Hyperliquid
+
+The objective is to uncover patterns linking market sentiment with trading outcomes and generate actionable insights to improve trading strategies.
+
+Datasets
+--------
+1. Fear Greed Index:
+   - Columns: Date, Classification (Fear or Greed)
+   - Source: Provided Google Drive link
+
+2. Historical Trader Data:
+   - Columns: Account, Symbol, Execution Price, Size, Side, Time, Start Position, Event, Closed PnL, Leverage, etc.
+   - Source: Provided Google Drive link
+
+Data Processing
+---------------
+- Load both datasets using pandas.
+- Parse date columns to datetime format.
+- Normalize data such as lowercasing text fields (e.g., 'Side').
+- Aggregate trader data daily (sum Closed PnL, Size, unique accounts).
+- Merge aggregated trader data with sentiment data on the date field.
+- Perform exploratory data analysis on merged data.
+
+Analysis Conducted
+------------------
+1. Summary statistics of Closed PnL grouped by sentiment classification.
+2. Statistical significance test (t-test) between PnL under Fear vs Greed days.
+3. Time series comparison of daily Closed PnL by sentiment.
+4. Leverage analysis (average leverage by sentiment, if leverage data is present).
+5. Trading volume comparison by sentiment.
+6. Cumulative profit over time visualization.
+7. Lag analysis: impact of previous day’s sentiment on current day’s PnL.
+8. Symbol-level analysis: PnL distribution per symbol by sentiment (if symbol data available).
+9. Correlation heatmap among key metrics (Closed PnL, trading volume, unique accounts).
+
+Web Application
+---------------
+- Built using Streamlit for interactive visualization and exploration.
+- Displays all insights, charts, and statistical summaries.
+- Includes animations and effects for enhanced user experience.
+- Easy to deploy locally or on Streamlit Cloud.
+
+How to Run
+----------
+1. Clone the repository.
+2. Create and activate a virtual environment with Python 3.8+.
+3. Install dependencies:
